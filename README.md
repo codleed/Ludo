@@ -2,6 +2,10 @@
 
 Desktop Ludo built with Tauri v2, React 18, TypeScript, Zustand, and Tailwind CSS.
 
+## Screenshot
+
+![Game board in double dice mode](public/screenshots/board-double-dice.png)
+
 ## Stack
 
 - Tauri v2
