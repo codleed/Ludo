@@ -15,7 +15,11 @@ import { HomePath } from "./HomePath";
 
 const toTrackMap = (pieces: Piece[]) =>
   pieces.reduce<Record<number, PlayerColor[]>>((accumulator, piece) => {
-    if (piece.status !== "active" || piece.position === null || piece.position >= 52) {
+    if (
+      piece.status !== "active" ||
+      piece.position === null ||
+      piece.position >= 52
+    ) {
       return accumulator;
     }
 
@@ -26,7 +30,11 @@ const toTrackMap = (pieces: Piece[]) =>
 
 const toLaneMap = (pieces: Piece[]) =>
   pieces.reduce<Record<string, PlayerColor>>((accumulator, piece) => {
-    if (piece.status === "active" && piece.position !== null && piece.position >= 52) {
+    if (
+      piece.status === "active" &&
+      piece.position !== null &&
+      piece.position >= 52
+    ) {
       accumulator[`${piece.player}-${piece.position}`] = piece.player;
     }
 
@@ -95,7 +103,9 @@ export const Board = () => {
       return;
     }
 
-    const move = validMoves.find((candidate) => candidate.targetRelIndex === targetRelIndex);
+    const move = validMoves.find(
+      (candidate) => candidate.targetRelIndex === targetRelIndex,
+    );
 
     if (!move) {
       return;
@@ -106,40 +116,53 @@ export const Board = () => {
   };
 
   return (
-    <section className="aspect-square w-full max-w-[min(78vh,48rem)] rounded-[2rem] border-8 border-amber-200 bg-amber-50 p-2 shadow-2xl">
+    <section className="aspect-square w-full max-w-[min(95vh,85vw)] rounded-xl border-2 border-amber-200 bg-amber-50 shadow-2xl">
       <div className="grid size-full grid-cols-[repeat(15,minmax(0,1fr))] grid-rows-[repeat(15,minmax(0,1fr))] overflow-hidden rounded-[1.5rem] bg-amber-50">
-        {Array.from({ length: BOARD_DIMENSION * BOARD_DIMENSION }, (_, index) => (
-          <div key={index} className="border border-amber-100" />
-        ))}
+        {Array.from(
+          { length: BOARD_DIMENSION * BOARD_DIMENSION },
+          (_, index) => (
+            <div key={index} className="border border-amber-100" />
+          ),
+        )}
         <HomeBase
           color="red"
           onPieceClick={handlePieceClick}
-          pieces={players[0]?.pieces.filter((piece) => piece.status === "base") ?? []}
-          selectedPieceId={selectedPieceId}
-        />
-        <HomeBase
-          color="blue"
-          onPieceClick={handlePieceClick}
-          pieces={players[1]?.pieces.filter((piece) => piece.status === "base") ?? []}
-          selectedPieceId={selectedPieceId}
-        />
-        <HomeBase
-          color="green"
-          onPieceClick={handlePieceClick}
-          pieces={players[2]?.pieces.filter((piece) => piece.status === "base") ?? []}
+          pieces={
+            players[0]?.pieces.filter((piece) => piece.status === "base") ?? []
+          }
           selectedPieceId={selectedPieceId}
         />
         <HomeBase
           color="yellow"
           onPieceClick={handlePieceClick}
-          pieces={players[3]?.pieces.filter((piece) => piece.status === "base") ?? []}
+          pieces={
+            players[1]?.pieces.filter((piece) => piece.status === "base") ?? []
+          }
+          selectedPieceId={selectedPieceId}
+        />
+        <HomeBase
+          color="green"
+          onPieceClick={handlePieceClick}
+          pieces={
+            players[2]?.pieces.filter((piece) => piece.status === "base") ?? []
+          }
+          selectedPieceId={selectedPieceId}
+        />
+        <HomeBase
+          color="blue"
+          onPieceClick={handlePieceClick}
+          pieces={
+            players[3]?.pieces.filter((piece) => piece.status === "base") ?? []
+          }
           selectedPieceId={selectedPieceId}
         />
         {SHARED_TRACK_COORDINATES.map((point, index) => (
           <BoardCell
             key={`${point.row}-${point.col}`}
             className={point.className}
-            isSafe={SAFE_SQUARES.includes(index as (typeof SAFE_SQUARES)[number])}
+            isSafe={SAFE_SQUARES.includes(
+              index as (typeof SAFE_SQUARES)[number],
+            )}
             isHighlighted={highlightedTrackTargets.has(index)}
             isSelectable={Boolean(selectedPieceId)}
             occupantColors={trackMap[index]}
@@ -149,7 +172,11 @@ export const Board = () => {
                 : null;
               if (
                 targetRelIndex !== null &&
-                shouldHandleTargetClick(selectedPieceId, validMoves, targetRelIndex)
+                shouldHandleTargetClick(
+                  selectedPieceId,
+                  validMoves,
+                  targetRelIndex,
+                )
               ) {
                 handleTargetClick(targetRelIndex);
                 return;
@@ -172,7 +199,7 @@ export const Board = () => {
                 handleTargetClick(targetRelIndex ?? 0);
               }
             }}
-            tone={index % 13 === 0 ? "bg-amber-100" : "bg-white"}
+            tone={index % 13 === 0 ? "bg-stone-400" : "bg-stone-400"}
           />
         ))}
         {Object.entries(HOME_LANE_COORDINATES).flatMap(([color, points]) =>
@@ -181,10 +208,18 @@ export const Board = () => {
               key={`${color}-${point.row}-${point.col}`}
               className={point.className}
               color={color as PlayerColor}
-              isHighlighted={highlightedHomeLaneTargets.has(`${color}-${index + 52}`)}
+              isHighlighted={highlightedHomeLaneTargets.has(
+                `${color}-${index + 52}`,
+              )}
               occupant={laneMap[`${color}-${index + 52}`]}
               onClick={() => {
-                if (shouldHandleTargetClick(selectedPieceId, validMoves, index + 52)) {
+                if (
+                  shouldHandleTargetClick(
+                    selectedPieceId,
+                    validMoves,
+                    index + 52,
+                  )
+                ) {
                   handleTargetClick(index + 52);
                   return;
                 }

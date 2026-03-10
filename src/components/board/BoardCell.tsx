@@ -14,7 +14,7 @@ interface BoardCellProps {
 
 export const BoardCell = ({
   className,
-  tone = "bg-white",
+  tone = "bg-stone-400",
   isSafe = false,
   isHighlighted = false,
   occupantColors = [],

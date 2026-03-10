@@ -1,28 +1,16 @@
 import {
-  BLOCKADE_ELIGIBLE_RELATIVE,
   HOME_LANE_ABSOLUTE_START,
   PLAYER_START_POSITIONS,
   SHARED_TRACK_LENGTH,
 } from "../constants";
 import type { BlockadeCell, DiceMode, Piece, PlayerColor } from "../types";
 
-const isBlockadeEligible = (targetRelIndex: number): boolean =>
-  BLOCKADE_ELIGIBLE_RELATIVE.includes(targetRelIndex as 0 | 50);
-
 const canShareTarget = (
-  piece: Piece,
-  targetRelIndex: number,
-  allPieces: Piece[],
+  _piece: Piece,
+  _targetRelIndex: number,
+  _allPieces: Piece[],
 ): boolean => {
-  const occupants = allPieces.filter(
-    (candidate) =>
-      candidate.id !== piece.id &&
-      candidate.player === piece.player &&
-      candidate.status === "active" &&
-      candidate.position === targetRelIndex,
-  ).length;
-
-  return occupants === 0 || (occupants === 1 && isBlockadeEligible(targetRelIndex));
+  return true;
 };
 
 const crossesOpponentBlockade = (

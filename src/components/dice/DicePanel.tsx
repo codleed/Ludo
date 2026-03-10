@@ -53,24 +53,22 @@ export const DicePanel = () => {
   };
 
   return (
-    <section className="space-y-4 rounded-[2rem] border-4 border-amber-200 bg-white p-6 shadow-lg">
-      <h2 className="text-2xl font-black text-slate-900">Dice</h2>
-      <div className="flex gap-3">
+    <section className="space-y-2 rounded border-4 border-amber-200 bg-slate-700 p-4 shadow-lg">
+      <h2 className="text-lg font-black text-slate-900">Dice</h2>
+      <div className="flex gap-2">
         {getDisplayedDiceSlots(
           dice.mode,
           dice.values,
           dice.usedValues,
           dice.lastValues,
-        ).map(
-          ({ value, dimmed }, index) => (
-            <Die
-              key={`${value}-${index}`}
-              dimmed={dimmed}
-              rolling={rolling}
-              value={value}
-            />
-          ),
-        )}
+        ).map(({ value, dimmed }, index) => (
+          <Die
+            key={`${value}-${index}`}
+            dimmed={dimmed}
+            rolling={rolling}
+            value={value}
+          />
+        ))}
       </div>
       <DiceRoller onRoll={handleRoll} />
     </section>

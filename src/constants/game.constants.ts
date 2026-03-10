@@ -1,7 +1,7 @@
 import { FINAL_RELATIVE_INDEX, PLAYER_PATH_LENGTH } from "./board.constants";
 import type { DiceState, Player, PlayerColor } from "../types";
 
-export const PLAYER_COLORS: PlayerColor[] = ["red", "blue", "green", "yellow"];
+export const PLAYER_COLORS: PlayerColor[] = ["red", "yellow", "green", "blue"];
 export const PIECES_PER_PLAYER = 4;
 export const DICE_FACES = 6;
 export const BLOCKADE_SIZE = 2;

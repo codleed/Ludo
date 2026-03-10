@@ -4,7 +4,7 @@ interface DiceRollerProps {
 
 export const DiceRoller = ({ onRoll }: DiceRollerProps) => (
   <button
-    className="w-full rounded-2xl bg-slate-900 px-4 py-3 font-bold text-white"
+    className="w-full rounded bg-slate-900 px-3 py-2 text-sm font-bold text-white"
     onClick={onRoll}
     type="button"
   >

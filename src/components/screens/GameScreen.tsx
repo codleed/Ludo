@@ -9,9 +9,9 @@ export default function GameScreen() {
   const { currentPlayer, endTurn, players } = useGameFlow();
 
   return (
-    <main className="min-h-screen bg-amber-50 p-6">
-      <section className="mx-auto grid max-w-7xl gap-6 xl:grid-cols-[280px_1fr_280px]">
-        <aside className="space-y-4">
+    <main className="h-screen w-screen bg-indigo-950 px-6 py-4 ">
+      <section className="mx-auto grid h-full gap-2 lg:grid-cols-[160px_1fr_160px]">
+        <aside className="space-y-2">
           <TurnIndicator color={currentPlayer?.color ?? "red"} />
           <ScoreTracker players={players} />
           {players.map((player) => (
@@ -22,13 +22,13 @@ export default function GameScreen() {
             />
           ))}
         </aside>
-        <div className="flex justify-center">
+        <div className="flex items-center justify-center">
           <Board />
         </div>
-        <aside className="space-y-4">
+        <aside className="space-y-2">
           <DicePanel />
           <button
-            className="w-full rounded-2xl border-2 border-slate-300 bg-white px-4 py-3 font-bold text-slate-700"
+            className="w-full rounded-2xl border-2 border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-700"
             onClick={endTurn}
             type="button"
           >
