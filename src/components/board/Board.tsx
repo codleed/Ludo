@@ -116,12 +116,12 @@ export const Board = () => {
   };
 
   return (
-    <section className="aspect-square w-full max-w-[min(95vh,85vw)] rounded-xl border-2 border-amber-200 bg-amber-50 shadow-2xl">
-      <div className="grid size-full grid-cols-[repeat(15,minmax(0,1fr))] grid-rows-[repeat(15,minmax(0,1fr))] overflow-hidden rounded-[1.5rem] bg-amber-50">
+    <section className="aspect-square w-full max-w-[min(95vh,85vw)] rounded-xl border-2 border-emerald-700 bg-emerald-950 shadow-2xl">
+      <div className="grid size-full grid-cols-[repeat(15,minmax(0,1fr))] grid-rows-[repeat(15,minmax(0,1fr))] overflow-hidden rounded-[1.5rem] bg-emerald-950">
         {Array.from(
           { length: BOARD_DIMENSION * BOARD_DIMENSION },
           (_, index) => (
-            <div key={index} className="border border-amber-100" />
+            <div key={index} className="border border-emerald-800/50" />
           ),
         )}
         <HomeBase
@@ -199,7 +199,7 @@ export const Board = () => {
                 handleTargetClick(targetRelIndex ?? 0);
               }
             }}
-            tone={index % 13 === 0 ? "bg-stone-400" : "bg-stone-400"}
+            tone={index % 13 === 0 ? "bg-emerald-600" : "bg-emerald-700/50"}
           />
         ))}
         {Object.entries(HOME_LANE_COORDINATES).flatMap(([color, points]) =>

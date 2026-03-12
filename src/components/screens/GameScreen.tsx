@@ -9,8 +9,8 @@ export default function GameScreen() {
   const { currentPlayer, endTurn, players } = useGameFlow();
 
   return (
-    <main className="h-screen w-screen bg-indigo-950 px-6 py-4 ">
-      <section className="mx-auto grid h-full gap-2 lg:grid-cols-[160px_1fr_160px]">
+    <main className="h-screen w-screen bg-slate-950 px-6 py-4">
+      <section className="mx-auto grid h-full gap-3 lg:grid-cols-[180px_1fr_180px]">
         <aside className="space-y-2">
           <TurnIndicator color={currentPlayer?.color ?? "red"} />
           <ScoreTracker players={players} />
@@ -28,7 +28,7 @@ export default function GameScreen() {
         <aside className="space-y-2">
           <DicePanel />
           <button
-            className="w-full rounded-2xl border-2 border-slate-300 bg-white px-3 py-2 text-sm font-bold text-slate-700"
+            className="w-full rounded-2xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm font-bold text-slate-200 transition-all hover:border-orange-500/50 hover:bg-slate-700"
             onClick={endTurn}
             type="button"
           >

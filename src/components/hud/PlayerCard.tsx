@@ -8,16 +8,18 @@ interface PlayerCardProps {
 
 export const PlayerCard = ({ player, isActive }: PlayerCardProps) => (
   <article
-    className={`rounded border-2 bg-slate-700 p-4 shadow-md ${
+    className={`rounded-2xl border bg-slate-800/80 p-4 shadow-lg backdrop-blur-sm transition-all ${
       isActive
-        ? `border-current ${PLAYER_THEME[player.color].text}`
-        : "border-amber-200 text-white"
+        ? `border-orange-500/50 shadow-[0_0_15px_rgba(249,115,22,0.3)]`
+        : "border-slate-600"
     }`}
   >
-    <h3 className="text-sm font-black capitalize">{player.color}</h3>
-    <p className="text-xs">
+    <h3 className={`text-sm font-black capitalize ${PLAYER_THEME[player.color].text}`}>
+      {player.color}
+    </h3>
+    <p className="text-xs text-slate-400">
       Base: {player.pieces.filter((piece) => piece.status === "base").length}
     </p>
-    <p className="text-xs">Finished: {player.finishedCount}</p>
+    <p className="text-xs text-slate-400">Finished: {player.finishedCount}</p>
   </article>
 );

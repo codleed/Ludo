@@ -19,35 +19,40 @@ export const PLAYER_THEME: Record<
     lane: string;
     ring: string;
     text: string;
+    glow: string;
   }
 > = {
   red: {
     piece: "bg-red-500",
-    base: "bg-red-200",
-    lane: "bg-red-400",
+    base: "bg-red-500/20",
+    lane: "bg-red-500/30",
     ring: "ring-red-400",
-    text: "text-red-700",
+    text: "text-red-400",
+    glow: "shadow-[0_0_12px_rgba(239,68,68,0.5)]",
   },
   blue: {
     piece: "bg-blue-500",
-    base: "bg-blue-200",
-    lane: "bg-blue-400",
+    base: "bg-blue-500/20",
+    lane: "bg-blue-500/30",
     ring: "ring-blue-400",
-    text: "text-blue-700",
+    text: "text-blue-400",
+    glow: "shadow-[0_0_12px_rgba(59,130,246,0.5)]",
   },
   green: {
     piece: "bg-green-500",
-    base: "bg-green-200",
-    lane: "bg-green-400",
+    base: "bg-green-500/20",
+    lane: "bg-green-500/30",
     ring: "ring-green-400",
-    text: "text-green-700",
+    text: "text-green-400",
+    glow: "shadow-[0_0_12px_rgba(34,197,94,0.5)]",
   },
   yellow: {
     piece: "bg-yellow-400",
-    base: "bg-yellow-200",
-    lane: "bg-yellow-300",
+    base: "bg-yellow-400/20",
+    lane: "bg-yellow-400/30",
     ring: "ring-yellow-300",
-    text: "text-yellow-700",
+    text: "text-yellow-400",
+    glow: "shadow-[0_0_12px_rgba(250,204,21,0.5)]",
   },
 };
 

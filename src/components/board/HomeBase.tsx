@@ -23,13 +23,13 @@ export const HomeBase = ({
   selectedPieceId,
 }: HomeBaseProps) => (
   <div
-    className={`grid ${HOME_BASE_CLASSES[color]} place-items-center border-4 border-white ${PLAYER_THEME[color].base}`}
+    className={`grid ${HOME_BASE_CLASSES[color]} place-items-center border-4 border-emerald-900 ${PLAYER_THEME[color].base}`}
   >
-    <div className="grid grid-cols-2 gap-6 rounded-[1.75rem] border-4 border-white bg-white/70 p-6 shadow-inner">
+    <div className="grid grid-cols-2 gap-4 rounded-[1.75rem] border-4 border-emerald-900/50 bg-emerald-950/50 p-5 shadow-inner">
       {pieces.map((piece) => (
         <button
           key={piece.id}
-          className="flex size-12 items-center justify-center rounded-full border-2 border-white bg-white/70"
+          className="flex size-12 items-center justify-center rounded-full border-2 border-emerald-800/50 bg-emerald-900/30"
           onClick={() => onPieceClick(piece.id)}
           type="button"
         >

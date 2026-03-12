@@ -17,13 +17,13 @@ export const HomePath = ({
   onClick,
 }: HomePathProps) => (
   <div
-    className={`${className} flex items-center justify-center border border-slate-300 ${
+    className={`${className} flex items-center justify-center border border-emerald-800/30 ${
       PLAYER_THEME[color].lane
-    } ${isHighlighted ? "ring-4 ring-amber-400 ring-inset" : ""} ${
+    } ${isHighlighted ? "ring-4 ring-orange-400 ring-inset shadow-[0_0_15px_rgba(249,115,22,0.5)]" : ""} ${
       onClick ? "cursor-pointer" : ""
     }`}
     onClick={onClick}
   >
-    {occupant ? <span className={`size-6 rounded-full border-2 border-white ${PLAYER_THEME[occupant].piece}`} /> : null}
+    {occupant ? <span className={`size-6 rounded-full border-2 border-emerald-900/50 ${PLAYER_THEME[occupant].piece}`} /> : null}
   </div>
 );

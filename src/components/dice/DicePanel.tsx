@@ -53,8 +53,8 @@ export const DicePanel = () => {
   };
 
   return (
-    <section className="space-y-2 rounded border-4 border-amber-200 bg-slate-700 p-4 shadow-lg">
-      <h2 className="text-lg font-black text-slate-900">Dice</h2>
+    <section className="space-y-2 rounded-2xl border border-slate-600 bg-slate-800/80 p-4 shadow-lg backdrop-blur-sm">
+      <h2 className="text-lg font-black text-slate-200">Dice</h2>
       <div className="flex gap-2">
         {getDisplayedDiceSlots(
           dice.mode,

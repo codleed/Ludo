@@ -25,14 +25,14 @@ interface DieProps {
 
 export const Die = ({ value, dimmed = false, rolling = false }: DieProps) => (
   <div
-    className={`grid size-16 grid-cols-3 grid-rows-3 rounded-2xl border-2 border-slate-300 bg-white p-2 shadow-md ${
+    className={`grid size-16 grid-cols-3 grid-rows-3 rounded-2xl border-2 border-slate-300 bg-white p-2 shadow-lg ${
       dimmed ? "opacity-40" : ""
     } ${rolling ? "animate-spin" : ""}`}
   >
     {(PIP_LAYOUT[value] ?? []).map((pip) => (
       <span
         key={pip}
-        className={`${PIP_CLASS[pip]} m-auto size-2.5 rounded-full bg-slate-900`}
+        className={`${PIP_CLASS[pip]} m-auto size-2.5 rounded-full bg-orange-500`}
       />
     ))}
   </div>
